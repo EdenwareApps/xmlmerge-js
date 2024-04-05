@@ -1,6 +1,8 @@
 xmlmerge-js
 ===========
 
+Forked from [@heysdk](https://github.com/heysdk/xmlmerge-js/blob/master/xmlmerge.js), removed CSV dependency and added attribute merging on equal nodes.
+
 **mlmerge-js** is a tool to merge xml file.
 
 It was originally designed to merge the various xml configuration files, such as **AndroidManifest.xml**.
@@ -40,15 +42,8 @@ This is a simple **AndroidManifest.xml**, we want to add a set of properties
       <uses-permission android:name="android.permission.READ_PHONE_STATE"/> 
     </manifest>
     
-In fact, these two xml merge together, in order to facilitate the merger xml, we need a simple configuration, for example, tells **mlmerge-js** that *manifest* and *application* is a direct match, no matches any attribute, and *activity* and *uses-permission* is required to match *android:name*, so add properties to avoid duplication, so we offer a csv profile.
 
-    nodename,attrname
-    manifest,*
-    application,*
-    activity,android:name
-    uses-permission,android:name
-
-Thus, **mlmerge-js** will be able to merge two xml correct, the results are as follows:
+**mlmerge-js** will be able to merge two xml correct, the results are as follows:
 
     <?xml version="1.0" encoding="utf-8"?>
 
@@ -74,27 +69,33 @@ Thus, **mlmerge-js** will be able to merge two xml correct, the results are as f
       <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> 
     </manifest>
 
-**mlmerge-js** examples in *samples* of *test.js* next
+**mlmerge-js** example:
 
-    var xmlmerge = require('../xmlmerge.js');
-    var fs = require('fs');
-    var csv2obj = require("../csv2obj");
-
-    fs.readFile('samples/AndroidManifest.xml', function(err, data) {
-        var str1 = data.toString();
-
-        fs.readFile('samples/kuaiwan.xml', function(err, data) {
-            var str2 = data.toString();
-
-            fs.readFile('samples/AndroidManifest.csv', function(err, data) {
-
-                config = csv2obj.csv2obj(data.toString());
-
-                xmlmerge.merge(str1, str2, config, function (xml) {
-                    fs.writeFile('samples/output.xml', xml, function (err) {
-
-                    });
-                });
-            });
-        });
-    });
+    import XmlMerge from 'xmlmergejs';
+    XmlMerge.mergeWithFile(originalFilePath, mergingFilePath, resultFilePath, [
+      {
+          "nodename": "manifest",
+          "attrname": "*"
+      },
+      {
+          "nodename": "application",
+          "attrname": "*"
+      },
+      {
+          "nodename": "activity",
+          "attrname": "*"
+      },
+      {
+          "nodename": "uses-permission",
+          "attrname": "android:name"
+      },
+      {
+          "nodename": "uses-feature",
+          "attrname": "android:name"
+      },
+      {
+          "nodename": "service",
+          "attrname": "android:name"
+      }    
+    ], () => console.log('DONE'))
+    
