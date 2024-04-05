@@ -1,6 +1,6 @@
 {
-  "name": "xmlmergejs",
-  "description": "merge xml file",
+  "name": "xmlmerge.js",
+  "description": "Merge xml files.",
   "version": "1.0.1",
   "main": "./xmlmerge.js",
   "keywords": [
@@ -11,12 +11,12 @@
     "xmldom": "*"
   },
   "repository": {
-    "url": "https://github.com/EdenwareApps/xmlmergejs.git"
+    "url": "https://github.com/EdenwareApps/xmlmerge.js.git"
   },
   "author": "EdenwareApps",
   "license": "MIT",
-  "homepage": "https://github.com/EdenwareApps/xmlmergejs",
+  "homepage": "https://github.com/EdenwareApps/xmlmerge.js",
   "bugs": {
-    "url": "https://github.com/EdenwareApps/xmlmergejs/issues"
+    "url": "https://github.com/EdenwareApps/xmlmerge.js/issues"
   }
 }
