@@ -1,9 +1,13 @@
 xmlmerge.js
 ===========
 
-Forked from [@heysdk](https://github.com/heysdk/xmlmerge-js/blob/master/xmlmerge.js), removed CSV dependency and added attribute merging on equal nodes.
+**xmlmerge.js** is a tool to merge xml files.
 
-**xmlmerge.js** is a tool to merge xml file.
+It was forked from [@heysdk](https://github.com/heysdk/xmlmerge-js/blob/master/xmlmerge.js), removed CSV dependency and added attribute merging on equal nodes.
+
+Install it with:
+
+    npm install --save https://github.com/EdenwareApps/xmlmerge.js
 
 It was originally designed to merge the various xml configuration files, such as **AndroidManifest.xml**.
 
