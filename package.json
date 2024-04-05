@@ -11,12 +11,12 @@
     "xmldom": "*"
   },
   "repository": {
-    "url": "https://github.com/EdenwareApps/xmlmerge-js.git"
+    "url": "https://github.com/EdenwareApps/xmlmergejs.git"
   },
   "author": "EdenwareApps",
   "license": "MIT",
-  "homepage": "https://github.com/EdenwareApps/xmlmerge-js",
+  "homepage": "https://github.com/EdenwareApps/xmlmergejs",
   "bugs": {
-    "url": "https://github.com/EdenwareApps/xmlmerge-js/issues"
+    "url": "https://github.com/EdenwareApps/xmlmergejs/issues"
   }
 }
