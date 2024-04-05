@@ -1,9 +1,9 @@
-xmlmerge-js
+xmlmergejs
 ===========
 
 Forked from [@heysdk](https://github.com/heysdk/xmlmerge-js/blob/master/xmlmerge.js), removed CSV dependency and added attribute merging on equal nodes.
 
-**mlmerge-js** is a tool to merge xml file.
+**xmlmergejs** is a tool to merge xml file.
 
 It was originally designed to merge the various xml configuration files, such as **AndroidManifest.xml**.
 
@@ -43,7 +43,7 @@ This is a simple **AndroidManifest.xml**, we want to add a set of properties
     </manifest>
     
 
-**mlmerge-js** will be able to merge two xml correct, the results are as follows:
+**xmlmergejs** will be able to merge two xml correct, the results are as follows:
 
     <?xml version="1.0" encoding="utf-8"?>
 
@@ -69,7 +69,7 @@ This is a simple **AndroidManifest.xml**, we want to add a set of properties
       <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> 
     </manifest>
 
-**mlmerge-js** example:
+**xmlmergejs** example:
 
     import XmlMerge from 'xmlmergejs';
     XmlMerge.mergeWithFile(originalFilePath, mergingFilePath, resultFilePath, [
