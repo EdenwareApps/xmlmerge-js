@@ -1,7 +1,6 @@
 var DOMParser = require('xmldom').DOMParser;
 var XMLSerializer = require('xmldom').XMLSerializer;
 var fs = require('fs');
-var csv2obj = require('heyutils').csv2obj;
 
 function addChild(obj, child) {
     obj.appendChild(child);
@@ -106,12 +105,8 @@ function mergeObj(obj1, obj2, config) {
             continue ;
         }
 
-        //logger.normal.log('info', 'obj2 ', curobj.nodeName);
-
         var obj1child = findSameChild(obj1, curobj, config);
         if (obj1child != null) {
-            //logger.normal.log('info', 'merge ', curobj.nodeName);
-
             mergeObj(obj1child, curobj, config);
         }
         else {
@@ -130,21 +125,15 @@ function merge(str1, str2, config, callback) {
     callback(str);
 }
 
-function mergeWithFile(src1, src2, dest, cfg, callback) {
+function mergeWithFile(src1, src2, dest, config, callback) {
     fs.readFile(src1, function(err, data) {
         var str1 = data.toString();
 
         fs.readFile(src2, function(err, data) {
             var str2 = data.toString();
-
-            fs.readFile(cfg, function(err, data) {
-
-                config = csv2obj.csv2obj(data.toString());
-
-                merge(str1, str2, config, function (xml) {
-                    fs.writeFile(dest, xml, function (err) {
-                        callback();
-                    });
+            merge(str1, str2, config, function (xml) {
+                fs.writeFile(dest, xml, function (err) {
+                    callback();
                 });
             });
         });
