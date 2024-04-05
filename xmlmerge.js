@@ -122,6 +122,7 @@ function merge(str1, str2, config, callback) {
     mergeObj(obj1.documentElement, obj2.documentElement, config);
 
     var str = new XMLSerializer().serializeToString(obj1);
+    str = str.replace(new RegExp(' xmlns:android=""', 'g'), '');
     callback(str);
 }
 
